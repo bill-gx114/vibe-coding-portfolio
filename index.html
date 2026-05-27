@@ -46,6 +46,10 @@
         text-decoration: none;
       }
 
+      .nowrap {
+        white-space: nowrap;
+      }
+
       img,
       video {
         max-width: 100%;
@@ -126,9 +130,10 @@
       h1 {
         margin-bottom: 24px;
         max-width: 780px;
-        font-size: clamp(42px, 7vw, 82px);
+        font-size: clamp(34px, 6vw, 78px);
         line-height: 0.98;
         letter-spacing: 0;
+        text-wrap: balance;
       }
 
       .hero-lead {
@@ -651,6 +656,7 @@
           <a href="#capabilities">能力线索</a>
           <a href="#timeline">项目时间线</a>
           <a href="#case">重点案例</a>
+          <a href="https://novel-companion-xi.vercel.app/" target="_blank" rel="noreferrer">小说伴读</a>
           <a href="https://shenmei-rich.vercel.app/" target="_blank" rel="noreferrer">审美日课</a>
         </div>
       </div>
@@ -660,9 +666,9 @@
       <section class="hero" aria-labelledby="hero-title">
         <div>
           <p class="eyebrow">AI Product Portfolio · 2024-2026</p>
-          <h1 id="hero-title">用 AI 把想法持续做成可体验产品</h1>
+          <h1 id="hero-title">用 AI 把想法持续做成<span class="nowrap">可体验产品</span></h1>
           <p class="hero-lead">
-            这不是传统研发履历，而是一条面向 AI 产品岗位的实践线索：从微信小程序的功能原型，到个人动态主页系统，再到已上线的审美学习网站，我持续用 Vibe Coding 把需求判断、交互设计、AI 能力和真实 Demo 串起来。
+            我本职是 6 年搜推策略产品，其中 5 年推荐、1 年搜索。这组作品是我在业余时间持续完成的 Vibe Coding 实践：从微信小程序到 Web 产品，把需求判断、交互设计、AI 能力接入和真实上线经验串成一条面向 AI 产品岗位的实践线索。
           </p>
           <div class="hero-actions">
             <a class="button" href="#timeline">查看项目时间线</a>
@@ -671,7 +677,7 @@
           <div class="proof-strip" aria-label="作品集摘要">
             <div class="proof-item">
               <strong>7</strong>
-              <span>个从想法到 Demo 或上线的产品实践</span>
+              <span>个从想法到上线或公开访问的产品实践</span>
             </div>
             <div class="proof-item">
               <strong>3</strong>
@@ -683,7 +689,7 @@
             </div>
           </div>
         </div>
-        <div class="hero-media" aria-label="审美日课演示视频">
+        <div class="hero-media" aria-label="审美日课展示视频">
           <video
             src="assets/videos/aesthetic-daily.mp4"
             poster="assets/posters/aesthetic-daily.jpg"
@@ -700,7 +706,7 @@
           <p class="section-kicker">为什么这组作品和 AI 产品相关</p>
           <h2 id="capabilities-title">我想展示的是产品化能力，而不只是“会写代码”</h2>
           <p class="section-lead">
-            这些项目覆盖了从问题识别、AI 能力选型、流程设计、内容组织到前端体验打磨的完整链路。对 AI 产品岗位来说，核心价值是能把模糊想法拆成可验证的体验，并快速形成可被用户理解的产品界面。
+            这些项目覆盖了从问题识别、AI 能力选型、流程设计、内容组织到前端体验打磨的完整链路。我的职业背景来自推荐和搜索策略产品，业余作品则补齐了从 0 到 1 做 AI 产品的实操证据：能把模糊想法拆成可验证体验，并快速形成可被用户理解的产品界面。
           </p>
           <div class="capability-grid">
             <article class="capability">
@@ -709,11 +715,11 @@
             </article>
             <article class="capability">
               <h3>AI 能力落点</h3>
-              <p>把识别、整理、解析、问答、内容生成放进明确用户流程里，让 AI 服务一个具体动作。</p>
+              <p>把 GPT-4o、千问多模态、Gemini 和 DeepSeek 等模型能力放进识别、整理、解析、问答和内容生成流程里。</p>
             </article>
             <article class="capability">
               <h3>交互原型</h3>
-              <p>用小程序和 Web 快速搭出可演示版本，验证信息结构、关键路径和视觉表达。</p>
+              <p>用小程序和 Web 快速做出完整产品形态，验证信息结构、关键路径和视觉表达。</p>
             </article>
             <article class="capability">
               <h3>持续演进</h3>
@@ -728,7 +734,7 @@
           <p class="section-kicker">项目时间线</p>
           <h2 id="timeline-title">从小工具到完整 AI 内容产品</h2>
           <p class="section-lead">
-            早期项目目前没有线上版本，因此这里用视频记录作为证据；审美日课保留在线链接，作为当前最完整、最适合面试展示的代表作品。
+            前期小程序和 Lumina 都曾成功上线，只是目前已下线，因此这里用视频保留产品记录；小说伴读和审美日课仍可在线访问，适合作为投递简历时的重点展示入口。
           </p>
 
           <div class="timeline">
@@ -747,7 +753,7 @@
                   <div class="meta-row">
                     <span class="pill">2024.06</span>
                     <span class="pill">微信小程序</span>
-                    <span class="pill archive">Demo 记录</span>
+                    <span class="pill archive">曾上线，现已下线</span>
                   </div>
                   <h3>每日推书</h3>
                   <p class="project-summary">
@@ -762,10 +768,15 @@
                       <strong>核心功能</strong>
                       <p>每日自动推送一本书，配套生成推荐语，让用户用很短时间判断是否感兴趣。</p>
                     </div>
+                    <div class="detail">
+                      <strong>AI 使用方式</strong>
+                      <p>调用 GPT-4o 动态生成每日书籍推荐语，让推荐内容具备更自然的表达和可读性。</p>
+                    </div>
                   </div>
                   <div class="tags">
                     <span class="tag">内容推荐</span>
                     <span class="tag">自动化推送</span>
+                    <span class="tag">GPT-4o</span>
                     <span class="tag">阅读场景</span>
                   </div>
                 </div>
@@ -787,7 +798,7 @@
                   <div class="meta-row">
                     <span class="pill">2024.11</span>
                     <span class="pill">微信小程序</span>
-                    <span class="pill archive">Demo 记录</span>
+                    <span class="pill archive">曾上线，现已下线</span>
                   </div>
                   <h3>闲置追踪器</h3>
                   <p class="project-summary">
@@ -802,9 +813,14 @@
                       <strong>核心功能</strong>
                       <p>拍照记录物品信息和位置，结合 AI 识别与地理位置服务，方便后续检索。</p>
                     </div>
+                    <div class="detail">
+                      <strong>AI 使用方式</strong>
+                      <p>拍照后推送到扣子，调用千问多模态大模型，自动推理物品名称、状态和所在位置信息。</p>
+                    </div>
                   </div>
                   <div class="tags">
                     <span class="tag">AI 识别</span>
+                    <span class="tag">千问多模态</span>
                     <span class="tag">位置记录</span>
                     <span class="tag">生活效率</span>
                   </div>
@@ -827,7 +843,7 @@
                   <div class="meta-row">
                     <span class="pill">2025.02</span>
                     <span class="pill">微信小程序</span>
-                    <span class="pill archive">Demo 记录</span>
+                    <span class="pill archive">曾上线，现已下线</span>
                   </div>
                   <h3>啡常有数</h3>
                   <p class="project-summary">
@@ -842,9 +858,14 @@
                       <strong>核心功能</strong>
                       <p>拍照识别饮品、记录常喝饮品、一键登记当天摄入，并可视化展示一段时间趋势。</p>
                     </div>
+                    <div class="detail">
+                      <strong>AI 使用方式</strong>
+                      <p>通过扣子接入千问多模态大模型，识别饮品类型并辅助推断对应咖啡因含量。</p>
+                    </div>
                   </div>
                   <div class="tags">
                     <span class="tag">图像识别</span>
+                    <span class="tag">千问多模态</span>
                     <span class="tag">健康记录</span>
                     <span class="tag">数据可视化</span>
                   </div>
@@ -867,7 +888,7 @@
                   <div class="meta-row">
                     <span class="pill">2025.04</span>
                     <span class="pill">微信小程序</span>
-                    <span class="pill archive">Demo 记录</span>
+                    <span class="pill archive">曾上线，现已下线</span>
                   </div>
                   <h3>约定时光</h3>
                   <p class="project-summary">
@@ -881,6 +902,10 @@
                     <div class="detail">
                       <strong>核心功能</strong>
                       <p>通过极速创建、微信分享、日历同步三步流程，帮助用户在 30 秒内完成活动创建与分享。</p>
+                    </div>
+                    <div class="detail">
+                      <strong>产品侧重点</strong>
+                      <p>重点验证微信生态里的快速创建、分享确认和跨平台日历同步链路，强调流程效率。</p>
                     </div>
                   </div>
                   <div class="tags">
@@ -907,7 +932,7 @@
                   <div class="meta-row">
                     <span class="pill">2025.11</span>
                     <span class="pill">Web 产品</span>
-                    <span class="pill archive">Demo 记录</span>
+                    <span class="pill archive">曾上线，现已下线</span>
                   </div>
                   <h3>Lumina</h3>
                   <p class="project-summary">
@@ -922,10 +947,15 @@
                       <strong>核心功能</strong>
                       <p>把 AI 作为分析师和交互设计师，将输入内容自动整理、归类、排版，形成可分享的动态主页。</p>
                     </div>
+                    <div class="detail">
+                      <strong>AI 使用方式</strong>
+                      <p>用户上传内容后调用 Gemini 3.1 Pro，自动完成信息整理、分类归纳和页面呈现优化。</p>
+                    </div>
                   </div>
                   <div class="tags">
                     <span class="tag">个人主页</span>
                     <span class="tag">AI 整理</span>
+                    <span class="tag">Gemini 3.1 Pro</span>
                     <span class="tag">结构化表达</span>
                   </div>
                 </div>
@@ -953,6 +983,10 @@
                       <strong>核心功能</strong>
                       <p>围绕当前阅读进度提供防剧透人物线、关系线、重点情节回顾，并支持防剧透 AI 问答。</p>
                     </div>
+                    <div class="detail">
+                      <strong>AI 使用方式</strong>
+                      <p>调用 DeepSeek API 生成当前阅读进度信息、人物当前状态梳理，并支持防剧透剧情问答。</p>
+                    </div>
                   </div>
                   <div class="hero-actions">
                     <a class="button" href="https://novel-companion-xi.vercel.app/" target="_blank" rel="noreferrer">访问小说伴读</a>
@@ -960,6 +994,7 @@
                   <div class="tags">
                     <span class="tag">在线产品</span>
                     <span class="tag">防剧透问答</span>
+                    <span class="tag">DeepSeek API</span>
                     <span class="tag">复杂信息梳理</span>
                     <span class="tag">阅读辅助</span>
                   </div>
@@ -997,6 +1032,10 @@
                       <strong>核心功能</strong>
                       <p>每日名画、重点解析、语音导览、看点提示、画面缩放、策展人寄语和问题回答。</p>
                     </div>
+                    <div class="detail">
+                      <strong>AI 使用方式</strong>
+                      <p>调用 DeepSeek API 动态生成每日导览语、策展语和训练题目，支撑持续内容生产。</p>
+                    </div>
                   </div>
                   <div class="hero-actions">
                     <a class="button" href="https://shenmei-rich.vercel.app/" target="_blank" rel="noreferrer">访问审美日课</a>
@@ -1005,6 +1044,7 @@
                     <span class="tag">在线产品</span>
                     <span class="tag">内容系统</span>
                     <span class="tag">AI 问答</span>
+                    <span class="tag">DeepSeek API</span>
                     <span class="tag">审美教育</span>
                   </div>
                 </div>
@@ -1031,7 +1071,7 @@
             <div class="case-note">
               <h3>它们最能代表我现在的 AI 产品理解</h3>
               <p>
-                小说伴读和审美日课都不是把 AI 接进页面就结束，而是围绕具体内容消费场景设计完整流程：一个解决长篇小说阅读中的防剧透理解，一个解决名画审美学习中的观察与知识进入。它们更接近 AI 产品岗位需要的能力：定义场景、组织信息、设计体验、整合能力、持续上线。
+                小说伴读和审美日课都不是把 AI 接进页面就结束，而是围绕具体内容消费场景设计完整流程：一个解决长篇小说阅读中的防剧透理解，一个解决名画审美学习中的观察与知识进入。它们把模型生成、内容结构、用户追问和学习反馈放进同一条体验链路，更接近 AI 产品岗位需要的能力：定义场景、组织信息、设计体验、整合能力、持续上线。
               </p>
             </div>
             <div class="case-points">
@@ -1045,7 +1085,7 @@
               </article>
               <article class="case-point">
                 <h3>可直接打开验证</h3>
-                <p>两个项目都是当前在线产品，面试官可以直接访问，看到从 Demo 走向公开产品的完成度。</p>
+                <p>两个项目都是当前在线产品，面试官可以直接访问，看到从想法、体验设计到公开产品的完成度。</p>
               </article>
             </div>
           </div>
@@ -1057,7 +1097,7 @@
           <div>
             <h2 id="closing-title">这组作品想证明的不是技术栈，而是产品推进能力</h2>
             <p>
-              我能从真实场景里提出问题，用 AI 和低代码/代码工具快速做出可体验版本，并根据产品形态不断调整信息架构、交互和内容表达。这正是我希望带到 AI 产品岗位里的能力。
+              我能从真实场景里提出问题，结合 6 年搜推策略产品经验，用 AI 和代码工具快速做出可体验产品，并根据产品形态不断调整信息架构、交互和内容表达。这正是我希望带到 AI 产品岗位里的能力。
             </p>
           </div>
           <div class="hero-actions">
@@ -1070,7 +1110,7 @@
 
     <footer class="footer">
       <div class="footer-inner">
-        Vibe Coding Portfolio · 2024-2026 · 早期项目以视频记录展示，小说伴读和审美日课为当前在线产品
+        Vibe Coding Portfolio · 2024-2026 · 已下线项目为曾上线产品的视频记录，小说伴读和审美日课为当前在线产品
       </div>
     </footer>
   </body>
