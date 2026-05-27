@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vibe Coding 作品集 | AI 产品实践历程</title>
+    <meta
+      name="description"
+      content="一个面向 AI 产品岗位的 Vibe Coding 作品集，记录从微信小程序到 AI Web 产品的持续实践。"
+    >
+    <style>
+      :root {
+        --ink: #202124;
+        --muted: #5f6368;
+        --line: #dadce0;
+        --paper: #f7f6f2;
+        --surface: #ffffff;
+        --green: #2f6f5e;
+        --red: #b4483b;
+        --gold: #9b6a22;
+        --blue: #2b66a0;
+        --shadow: 0 14px 35px rgba(32, 33, 36, 0.08);
+        --radius: 8px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        line-height: 1.65;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img,
+      video {
+        max-width: 100%;
+        display: block;
+      }
+
+      .site-nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid rgba(218, 220, 224, 0.72);
+        background: rgba(247, 246, 242, 0.92);
+        backdrop-filter: blur(16px);
+      }
+
+      .nav-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 14px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        font-size: 15px;
+        font-weight: 760;
+        letter-spacing: 0;
+        white-space: nowrap;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .nav-links a {
+        padding: 4px 0;
+      }
+
+      .nav-links a:hover {
+        color: var(--ink);
+      }
+
+      main {
+        overflow: hidden;
+      }
+
+      .hero {
+        max-width: 1180px;
+        margin: 0 auto;
+        min-height: calc(100svh - 58px);
+        padding: 74px 24px 40px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(360px, 0.7fr);
+        align-items: center;
+        gap: 48px;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--green);
+        font-size: 14px;
+        font-weight: 760;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin-bottom: 24px;
+        max-width: 780px;
+        font-size: clamp(42px, 7vw, 82px);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .hero-lead {
+        max-width: 760px;
+        margin-bottom: 28px;
+        color: #34363a;
+        font-size: clamp(18px, 2vw, 23px);
+        line-height: 1.55;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 34px;
+      }
+
+      .button {
+        min-height: 44px;
+        padding: 10px 16px;
+        border: 1px solid var(--ink);
+        border-radius: var(--radius);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: var(--ink);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 720;
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--ink);
+      }
+
+      .proof-strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        max-width: 760px;
+      }
+
+      .proof-item {
+        min-height: 112px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.62);
+      }
+
+      .proof-item strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 24px;
+        line-height: 1.1;
+      }
+
+      .proof-item span {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .hero-media {
+        align-self: stretch;
+        min-height: 520px;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        background: #111;
+      }
+
+      .hero-media video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .section {
+        padding: 76px 24px;
+      }
+
+      .section.alt {
+        background: #fff;
+      }
+
+      .section-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+
+      .section-kicker {
+        margin-bottom: 10px;
+        color: var(--red);
+        font-size: 13px;
+        font-weight: 780;
+      }
+
+      h2 {
+        margin-bottom: 18px;
+        font-size: clamp(28px, 4vw, 46px);
+        line-height: 1.12;
+        letter-spacing: 0;
+      }
+
+      .section-lead {
+        max-width: 760px;
+        margin-bottom: 34px;
+        color: var(--muted);
+        font-size: 18px;
+      }
+
+      .capability-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .capability {
+        padding: 20px;
+        border-left: 4px solid var(--green);
+        border-radius: var(--radius);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .capability:nth-child(2) {
+        border-left-color: var(--blue);
+      }
+
+      .capability:nth-child(3) {
+        border-left-color: var(--red);
+      }
+
+      .capability:nth-child(4) {
+        border-left-color: var(--gold);
+      }
+
+      .capability h3 {
+        margin-bottom: 8px;
+        font-size: 18px;
+      }
+
+      .capability p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .timeline {
+        position: relative;
+        display: grid;
+        gap: 22px;
+      }
+
+      .project {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .project.featured {
+        border-color: rgba(47, 111, 94, 0.55);
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: minmax(320px, 0.88fr) minmax(0, 1.12fr);
+        gap: 0;
+      }
+
+      .project-media {
+        min-height: 100%;
+        background: #111;
+      }
+
+      .project-media.portrait {
+        background:
+          linear-gradient(90deg, #111 0, #191919 50%, #111 100%);
+      }
+
+      .project-media video {
+        width: 100%;
+        height: 100%;
+        max-height: 620px;
+        object-fit: contain;
+        background: #111;
+      }
+
+      .project-body {
+        padding: 28px;
+      }
+
+      .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .pill {
+        min-height: 26px;
+        padding: 3px 9px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--muted);
+        background: #fafafa;
+        font-size: 12px;
+        font-weight: 680;
+      }
+
+      .pill.live {
+        border-color: rgba(47, 111, 94, 0.28);
+        color: var(--green);
+        background: rgba(47, 111, 94, 0.08);
+      }
+
+      .pill.archive {
+        border-color: rgba(154, 106, 34, 0.28);
+        color: var(--gold);
+        background: rgba(154, 106, 34, 0.08);
+      }
+
+      .project h3 {
+        margin-bottom: 10px;
+        font-size: clamp(23px, 3vw, 32px);
+        line-height: 1.18;
+      }
+
+      .project-summary {
+        margin-bottom: 18px;
+        color: #3a3d41;
+        font-size: 17px;
+      }
+
+      .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .detail {
+        padding-top: 12px;
+        border-top: 1px solid var(--line);
+      }
+
+      .detail strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 13px;
+      }
+
+      .detail p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        padding: 5px 9px;
+        border-radius: 999px;
+        background: #f0efea;
+        color: #474a4f;
+        font-size: 12px;
+      }
+
+      .case-band {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 32px;
+        align-items: start;
+      }
+
+      .case-note {
+        padding: 24px;
+        border-radius: var(--radius);
+        background: #202124;
+        color: #fff;
+      }
+
+      .case-note h3 {
+        margin-bottom: 14px;
+        font-size: 24px;
+      }
+
+      .case-note p {
+        margin-bottom: 0;
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      .case-points {
+        display: grid;
+        gap: 14px;
+      }
+
+      .case-point {
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fff;
+      }
+
+      .case-point h3 {
+        margin-bottom: 6px;
+        font-size: 18px;
+      }
+
+      .case-point p {
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      .closing {
+        padding: 70px 24px;
+        background: #202124;
+        color: #fff;
+      }
+
+      .closing-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .closing h2 {
+        margin-bottom: 12px;
+      }
+
+      .closing p {
+        max-width: 760px;
+        margin-bottom: 0;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .closing .button {
+        border-color: #fff;
+        background: #fff;
+        color: var(--ink);
+      }
+
+      .footer {
+        padding: 22px 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        background: #202124;
+        color: rgba(255, 255, 255, 0.54);
+        font-size: 13px;
+      }
+
+      .footer-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 920px) {
+        .nav-inner {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .nav-links {
+          width: 100%;
+          overflow-x: auto;
+          padding-bottom: 2px;
+        }
+
+        .hero,
+        .project-grid,
+        .case-band,
+        .closing-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: 0;
+          padding-top: 46px;
+        }
+
+        .hero-media {
+          min-height: 420px;
+        }
+
+        .capability-grid,
+        .proof-strip {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 640px) {
+        .section {
+          padding: 54px 18px;
+        }
+
+        .hero {
+          padding: 38px 18px 28px;
+        }
+
+        h1 {
+          font-size: 42px;
+        }
+
+        .hero-lead,
+        .section-lead {
+          font-size: 16px;
+        }
+
+        .proof-strip,
+        .capability-grid,
+        .detail-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .project-body {
+          padding: 22px;
+        }
+
+        .project-media video {
+          max-height: 560px;
+        }
+
+        .closing {
+          padding: 54px 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="作品集导航">
+      <div class="nav-inner">
+        <a class="brand" href="#top">Vibe Coding 作品集</a>
+        <div class="nav-links">
+          <a href="#capabilities">能力线索</a>
+          <a href="#timeline">项目时间线</a>
+          <a href="#case">重点案例</a>
+          <a href="https://shenmei-rich.vercel.app/" target="_blank" rel="noreferrer">审美日课</a>
+        </div>
+      </div>
+    </nav>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">AI Product Portfolio · 2024-2026</p>
+          <h1 id="hero-title">用 AI 把想法持续做成可体验产品</h1>
+          <p class="hero-lead">
+            这不是传统研发履历，而是一条面向 AI 产品岗位的实践线索：从微信小程序的功能原型，到个人动态主页系统，再到已上线的审美学习网站，我持续用 Vibe Coding 把需求判断、交互设计、AI 能力和真实 Demo 串起来。
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#timeline">查看项目时间线</a>
+            <a class="button secondary" href="https://shenmei-rich.vercel.app/" target="_blank" rel="noreferrer">打开在线产品</a>
+          </div>
+          <div class="proof-strip" aria-label="作品集摘要">
+            <div class="proof-item">
+              <strong>6</strong>
+              <span>个从想法到 Demo 或上线的产品实践</span>
+            </div>
+            <div class="proof-item">
+              <strong>3</strong>
+              <span>类形态：微信小程序、个人主页系统、内容型 Web 产品</span>
+            </div>
+            <div class="proof-item">
+              <strong>1</strong>
+              <span>个当前在线产品：审美日课</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-media" aria-label="审美日课演示视频">
+          <video
+            src="assets/videos/aesthetic-daily.mp4"
+            poster="assets/posters/aesthetic-daily.jpg"
+            autoplay
+            muted
+            loop
+            playsinline
+          ></video>
+        </div>
+      </section>
+
+      <section class="section alt" id="capabilities" aria-labelledby="capabilities-title">
+        <div class="section-inner">
+          <p class="section-kicker">为什么这组作品和 AI 产品相关</p>
+          <h2 id="capabilities-title">我想展示的是产品化能力，而不只是“会写代码”</h2>
+          <p class="section-lead">
+            这些项目覆盖了从问题识别、AI 能力选型、流程设计、内容组织到前端体验打磨的完整链路。对 AI 产品岗位来说，核心价值是能把模糊想法拆成可验证的体验，并快速形成可被用户理解的产品界面。
+          </p>
+          <div class="capability-grid">
+            <article class="capability">
+              <h3>问题定义</h3>
+              <p>从“找不到闲置物品”“不知道咖啡因摄入量”“约时间太麻烦”等具体场景出发，而不是先从技术出发。</p>
+            </article>
+            <article class="capability">
+              <h3>AI 能力落点</h3>
+              <p>把识别、整理、解析、问答、内容生成放进明确用户流程里，让 AI 服务一个具体动作。</p>
+            </article>
+            <article class="capability">
+              <h3>交互原型</h3>
+              <p>用小程序和 Web 快速搭出可演示版本，验证信息结构、关键路径和视觉表达。</p>
+            </article>
+            <article class="capability">
+              <h3>持续演进</h3>
+              <p>从单点工具走向内容系统和在线产品，逐步把“能用”推进到“愿意看、愿意学、愿意分享”。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="timeline" aria-labelledby="timeline-title">
+        <div class="section-inner">
+          <p class="section-kicker">项目时间线</p>
+          <h2 id="timeline-title">从小工具到完整 AI 内容产品</h2>
+          <p class="section-lead">
+            早期项目目前没有线上版本，因此这里用视频记录作为证据；审美日课保留在线链接，作为当前最完整、最适合面试展示的代表作品。
+          </p>
+
+          <div class="timeline">
+            <article class="project">
+              <div class="project-grid">
+                <div class="project-media portrait">
+                  <video
+                    src="assets/videos/caffeine.mp4"
+                    poster="assets/posters/caffeine.jpg"
+                    controls
+                    preload="metadata"
+                    playsinline
+                  ></video>
+                </div>
+                <div class="project-body">
+                  <div class="meta-row">
+                    <span class="pill">2024.02</span>
+                    <span class="pill">微信小程序</span>
+                    <span class="pill archive">Demo 记录</span>
+                  </div>
+                  <h3>啡常有数</h3>
+                  <p class="project-summary">
+                    一个咖啡因摄入记录工具，通过拍照识别饮品和咖啡因含量，帮助用户更轻量地理解自己的摄入习惯。
+                  </p>
+                  <div class="detail-grid">
+                    <div class="detail">
+                      <strong>解决问题</strong>
+                      <p>用户喝咖啡、茶饮、能量饮料时很少主动换算咖啡因，长期摄入也缺少直观记录。</p>
+                    </div>
+                    <div class="detail">
+                      <strong>核心功能</strong>
+                      <p>拍照识别饮品、记录常喝饮品、一键登记当天摄入，并可视化展示一段时间趋势。</p>
+                    </div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">图像识别</span>
+                    <span class="tag">健康记录</span>
+                    <span class="tag">数据可视化</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project">
+              <div class="project-grid">
+                <div class="project-media portrait">
+                  <video
+                    src="assets/videos/daily-books.mp4"
+                    poster="assets/posters/daily-books.jpg"
+                    controls
+                    preload="metadata"
+                    playsinline
+                  ></video>
+                </div>
+                <div class="project-body">
+                  <div class="meta-row">
+                    <span class="pill">2024.06</span>
+                    <span class="pill">微信小程序</span>
+                    <span class="pill archive">Demo 记录</span>
+                  </div>
+                  <h3>每日推书</h3>
+                  <p class="project-summary">
+                    一个每天自动推荐一本书的小程序，用推荐语降低用户发现新书的成本。
+                  </p>
+                  <div class="detail-grid">
+                    <div class="detail">
+                      <strong>解决问题</strong>
+                      <p>用户想读书但缺少低成本入口，传统书单又经常信息密度过高。</p>
+                    </div>
+                    <div class="detail">
+                      <strong>核心功能</strong>
+                      <p>每日自动推送一本书，配套生成推荐语，让用户用很短时间判断是否感兴趣。</p>
+                    </div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">内容推荐</span>
+                    <span class="tag">自动化推送</span>
+                    <span class="tag">阅读场景</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project">
+              <div class="project-grid">
+                <div class="project-media portrait">
+                  <video
+                    src="assets/videos/idle-tracker.mp4"
+                    poster="assets/posters/idle-tracker.jpg"
+                    controls
+                    preload="metadata"
+                    playsinline
+                  ></video>
+                </div>
+                <div class="project-body">
+                  <div class="meta-row">
+                    <span class="pill">2024.11</span>
+                    <span class="pill">微信小程序</span>
+                    <span class="pill archive">Demo 记录</span>
+                  </div>
+                  <h3>闲置追踪器</h3>
+                  <p class="project-summary">
+                    一个帮助用户记录和查找物品位置的小程序，通过拍照、AI 识别和位置记录建立物品电子档案。
+                  </p>
+                  <div class="detail-grid">
+                    <div class="detail">
+                      <strong>解决问题</strong>
+                      <p>不常用物品放置后容易遗忘，家里和多地点存放的物品很难快速定位。</p>
+                    </div>
+                    <div class="detail">
+                      <strong>核心功能</strong>
+                      <p>拍照记录物品信息和位置，结合 AI 识别与地理位置服务，方便后续检索。</p>
+                    </div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">AI 识别</span>
+                    <span class="tag">位置记录</span>
+                    <span class="tag">生活效率</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project">
+              <div class="project-grid">
+                <div class="project-media portrait">
+                  <video
+                    src="assets/videos/moments.mp4"
+                    poster="assets/posters/moments.jpg"
+                    controls
+                    preload="metadata"
+                    playsinline
+                  ></video>
+                </div>
+                <div class="project-body">
+                  <div class="meta-row">
+                    <span class="pill">2025.04</span>
+                    <span class="pill">微信小程序</span>
+                    <span class="pill archive">Demo 记录</span>
+                  </div>
+                  <h3>约定时光</h3>
+                  <p class="project-summary">
+                    一个面向活动约定的小程序，聚焦创建繁琐、确认低效、日历分散三个痛点。
+                  </p>
+                  <div class="detail-grid">
+                    <div class="detail">
+                      <strong>解决问题</strong>
+                      <p>多人活动从创建、确认到同步日历经常分散在聊天、表格和系统日历之间。</p>
+                    </div>
+                    <div class="detail">
+                      <strong>核心功能</strong>
+                      <p>通过极速创建、微信分享、日历同步三步流程，帮助用户在 30 秒内完成活动创建与分享。</p>
+                    </div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">效率工具</span>
+                    <span class="tag">微信分享</span>
+                    <span class="tag">日历同步</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project">
+              <div class="project-grid">
+                <div class="project-media">
+                  <video
+                    src="assets/videos/lumina.mp4"
+                    poster="assets/posters/lumina.jpg"
+                    controls
+                    preload="metadata"
+                    playsinline
+                  ></video>
+                </div>
+                <div class="project-body">
+                  <div class="meta-row">
+                    <span class="pill">2025.11</span>
+                    <span class="pill">Web 产品</span>
+                    <span class="pill archive">Demo 记录</span>
+                  </div>
+                  <h3>Lumina</h3>
+                  <p class="project-summary">
+                    一个 AI 时代的个人动态主页：用户只管输入，系统负责整理所看、所想、所做，并以结构化卡片和清晰分类呈现。
+                  </p>
+                  <div class="detail-grid">
+                    <div class="detail">
+                      <strong>解决问题</strong>
+                      <p>个人成长、阅读、项目和想法通常散落在不同工具里，很难形成可回顾、可展示的主页。</p>
+                    </div>
+                    <div class="detail">
+                      <strong>核心功能</strong>
+                      <p>把 AI 作为分析师和交互设计师，将输入内容自动整理、归类、排版，形成可分享的动态主页。</p>
+                    </div>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">个人主页</span>
+                    <span class="tag">AI 整理</span>
+                    <span class="tag">结构化表达</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project featured">
+              <div class="project-grid">
+                <div class="project-media">
+                  <video
+                    src="assets/videos/aesthetic-daily.mp4"
+                    poster="assets/posters/aesthetic-daily.jpg"
+                    controls
+                    preload="metadata"
+                    playsinline
+                  ></video>
+                </div>
+                <div class="project-body">
+                  <div class="meta-row">
+                    <span class="pill">2026.05</span>
+                    <span class="pill">Web 产品</span>
+                    <span class="pill live">当前在线</span>
+                  </div>
+                  <h3>审美日课</h3>
+                  <p class="project-summary">
+                    一个每日审美学习网站：每天提供一幅名画，结合画作解析、语音播报、看点提示、缩放观察、策展人寄语和问答，帮助用户积累审美词汇与知识。
+                  </p>
+                  <div class="detail-grid">
+                    <div class="detail">
+                      <strong>解决问题</strong>
+                      <p>普通用户想看懂名画，但经常缺少进入点、观察顺序和可持续学习的内容组织。</p>
+                    </div>
+                    <div class="detail">
+                      <strong>核心功能</strong>
+                      <p>每日名画、重点解析、语音导览、看点提示、画面缩放、策展人寄语和问题回答。</p>
+                    </div>
+                  </div>
+                  <div class="hero-actions">
+                    <a class="button" href="https://shenmei-rich.vercel.app/" target="_blank" rel="noreferrer">访问审美日课</a>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">在线产品</span>
+                    <span class="tag">内容系统</span>
+                    <span class="tag">AI 问答</span>
+                    <span class="tag">审美教育</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="case" aria-labelledby="case-title">
+        <div class="section-inner">
+          <p class="section-kicker">重点案例</p>
+          <h2 id="case-title">为什么把审美日课作为当前主案例</h2>
+          <div class="case-band">
+            <div class="case-note">
+              <h3>它最能代表我现在的 AI 产品理解</h3>
+              <p>
+                审美日课不只是把 AI 接进页面，而是把内容、观察路径、知识解释、语音体验和互动问答组织成一个完整学习流程。它更接近 AI 产品岗位需要的能力：定义场景、设计体验、整合能力、持续上线。
+              </p>
+            </div>
+            <div class="case-points">
+              <article class="case-point">
+                <h3>从“工具”走向“体验”</h3>
+                <p>早期项目更多验证单点功能，审美日课开始关注用户每天进入后如何理解、停留、追问和积累。</p>
+              </article>
+              <article class="case-point">
+                <h3>把 AI 放进内容工作流</h3>
+                <p>AI 不只是生成答案，而是参与解析、提示、导览和知识沉淀，让复杂内容变得可进入。</p>
+              </article>
+              <article class="case-point">
+                <h3>可直接打开验证</h3>
+                <p>它是当前在线项目，面试官可以直接访问，看到从 Demo 走向公开产品的完成度。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing" aria-labelledby="closing-title">
+        <div class="closing-inner">
+          <div>
+            <h2 id="closing-title">这组作品想证明的不是技术栈，而是产品推进能力</h2>
+            <p>
+              我能从真实场景里提出问题，用 AI 和低代码/代码工具快速做出可体验版本，并根据产品形态不断调整信息架构、交互和内容表达。这正是我希望带到 AI 产品岗位里的能力。
+            </p>
+          </div>
+          <a class="button" href="https://shenmei-rich.vercel.app/" target="_blank" rel="noreferrer">查看当前在线产品</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        Vibe Coding Portfolio · 2024-2026 · 早期项目以视频记录展示，审美日课为当前在线产品
+      </div>
+    </footer>
+  </body>
+</html>
