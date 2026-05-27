@@ -195,8 +195,8 @@
       }
 
       .hero-media {
-        align-self: stretch;
-        min-height: 520px;
+        align-self: center;
+        aspect-ratio: 16 / 9;
         border-radius: var(--radius);
         overflow: hidden;
         box-shadow: var(--shadow);
@@ -206,7 +206,8 @@
       .hero-media video {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
+        background: #111;
       }
 
       .section {
@@ -300,12 +301,17 @@
 
       .project-grid {
         display: grid;
-        grid-template-columns: minmax(320px, 0.88fr) minmax(0, 1.12fr);
+        grid-template-columns: minmax(260px, 0.42fr) minmax(0, 0.58fr);
         gap: 0;
+        align-items: stretch;
       }
 
       .project-media {
-        min-height: 100%;
+        min-height: 340px;
+        padding: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background: #111;
       }
 
@@ -315,11 +321,72 @@
       }
 
       .project-media video {
-        width: 100%;
-        height: 100%;
+        width: auto;
+        height: auto;
+        max-width: 100%;
         max-height: 620px;
         object-fit: contain;
         background: #111;
+        border-radius: 6px;
+      }
+
+      .project-media.portrait video {
+        max-width: min(280px, 100%);
+      }
+
+      .project.landscape .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project.landscape .project-body {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .project.landscape .project-media {
+        min-height: 0;
+        padding: 18px;
+      }
+
+      .project.landscape .project-media video {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        max-height: none;
+      }
+
+      .live-preview {
+        width: min(780px, 100%);
+        min-height: 320px;
+        padding: 28px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--radius);
+        display: grid;
+        align-content: space-between;
+        gap: 28px;
+        color: #fff;
+        background:
+          linear-gradient(135deg, rgba(47, 111, 94, 0.92), rgba(32, 33, 36, 0.96)),
+          linear-gradient(90deg, transparent 0 24px, rgba(255, 255, 255, 0.06) 24px 25px);
+      }
+
+      .live-preview-title {
+        margin: 0;
+        font-size: clamp(28px, 4vw, 48px);
+        line-height: 1.08;
+      }
+
+      .live-preview p {
+        max-width: 560px;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      .live-preview-link {
+        width: fit-content;
+        min-height: 40px;
+        padding: 8px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.62);
+        border-radius: var(--radius);
+        font-weight: 720;
       }
 
       .project-body {
@@ -484,6 +551,12 @@
         color: var(--ink);
       }
 
+      .closing .button + .button {
+        border-color: rgba(255, 255, 255, 0.58);
+        background: transparent;
+        color: #fff;
+      }
+
       .footer {
         padding: 22px 24px;
         border-top: 1px solid rgba(255, 255, 255, 0.12);
@@ -523,7 +596,7 @@
         }
 
         .hero-media {
-          min-height: 420px;
+          min-height: 0;
         }
 
         .capability-grid,
@@ -597,16 +670,16 @@
           </div>
           <div class="proof-strip" aria-label="作品集摘要">
             <div class="proof-item">
-              <strong>6</strong>
+              <strong>7</strong>
               <span>个从想法到 Demo 或上线的产品实践</span>
             </div>
             <div class="proof-item">
               <strong>3</strong>
-              <span>类形态：微信小程序、个人主页系统、内容型 Web 产品</span>
+              <span>类形态：微信小程序、阅读伴读工具、内容型 Web 产品</span>
             </div>
             <div class="proof-item">
-              <strong>1</strong>
-              <span>个当前在线产品：审美日课</span>
+              <strong>2</strong>
+              <span>个当前在线产品：小说伴读、审美日课</span>
             </div>
           </div>
         </div>
@@ -859,17 +932,52 @@
               </div>
             </article>
 
-            <article class="project featured">
+            <article class="project landscape featured">
               <div class="project-grid">
+                <div class="project-body">
+                  <div class="meta-row">
+                    <span class="pill">2026.04</span>
+                    <span class="pill">Web 产品</span>
+                    <span class="pill live">当前在线</span>
+                  </div>
+                  <h3>小说伴读</h3>
+                  <p class="project-summary">
+                    一个阅读复杂长篇小说的 AI 伴读工具，帮助用户在不被剧透的前提下，随时查看人物当前故事线、关系线和重点情节，并与 AI 对话理解小说内容。
+                  </p>
+                  <div class="detail-grid">
+                    <div class="detail">
+                      <strong>解决问题</strong>
+                      <p>长篇小说人物多、关系复杂、伏笔密集，读者中途容易忘记前情，但搜索资料又很容易被后续剧情剧透。</p>
+                    </div>
+                    <div class="detail">
+                      <strong>核心功能</strong>
+                      <p>围绕当前阅读进度提供防剧透人物线、关系线、重点情节回顾，并支持防剧透 AI 问答。</p>
+                    </div>
+                  </div>
+                  <div class="hero-actions">
+                    <a class="button" href="https://novel-companion-xi.vercel.app/" target="_blank" rel="noreferrer">访问小说伴读</a>
+                  </div>
+                  <div class="tags">
+                    <span class="tag">在线产品</span>
+                    <span class="tag">防剧透问答</span>
+                    <span class="tag">复杂信息梳理</span>
+                    <span class="tag">阅读辅助</span>
+                  </div>
+                </div>
                 <div class="project-media">
                   <video
-                    src="assets/videos/aesthetic-daily.mp4"
-                    poster="assets/posters/aesthetic-daily.jpg"
+                    src="assets/videos/novel-companion.mp4"
+                    poster="assets/posters/novel-companion.jpg"
                     controls
                     preload="metadata"
                     playsinline
                   ></video>
                 </div>
+              </div>
+            </article>
+
+            <article class="project landscape featured">
+              <div class="project-grid">
                 <div class="project-body">
                   <div class="meta-row">
                     <span class="pill">2026.05</span>
@@ -900,6 +1008,15 @@
                     <span class="tag">审美教育</span>
                   </div>
                 </div>
+                <div class="project-media">
+                  <video
+                    src="assets/videos/aesthetic-daily.mp4"
+                    poster="assets/posters/aesthetic-daily.jpg"
+                    controls
+                    preload="metadata"
+                    playsinline
+                  ></video>
+                </div>
               </div>
             </article>
           </div>
@@ -909,26 +1026,26 @@
       <section class="section alt" id="case" aria-labelledby="case-title">
         <div class="section-inner">
           <p class="section-kicker">重点案例</p>
-          <h2 id="case-title">为什么把审美日课作为当前主案例</h2>
+          <h2 id="case-title">为什么把小说伴读和审美日课作为当前主案例</h2>
           <div class="case-band">
             <div class="case-note">
-              <h3>它最能代表我现在的 AI 产品理解</h3>
+              <h3>它们最能代表我现在的 AI 产品理解</h3>
               <p>
-                审美日课不只是把 AI 接进页面，而是把内容、观察路径、知识解释、语音体验和互动问答组织成一个完整学习流程。它更接近 AI 产品岗位需要的能力：定义场景、设计体验、整合能力、持续上线。
+                小说伴读和审美日课都不是把 AI 接进页面就结束，而是围绕具体内容消费场景设计完整流程：一个解决长篇小说阅读中的防剧透理解，一个解决名画审美学习中的观察与知识进入。它们更接近 AI 产品岗位需要的能力：定义场景、组织信息、设计体验、整合能力、持续上线。
               </p>
             </div>
             <div class="case-points">
               <article class="case-point">
-                <h3>从“工具”走向“体验”</h3>
-                <p>早期项目更多验证单点功能，审美日课开始关注用户每天进入后如何理解、停留、追问和积累。</p>
+                <h3>从“工具”走向“内容体验”</h3>
+                <p>早期项目更多验证单点功能，后期项目开始关注用户进入复杂内容后如何理解、停留、追问和积累。</p>
               </article>
               <article class="case-point">
-                <h3>把 AI 放进内容工作流</h3>
-                <p>AI 不只是生成答案，而是参与解析、提示、导览和知识沉淀，让复杂内容变得可进入。</p>
+                <h3>把 AI 放进有边界的工作流</h3>
+                <p>AI 不只是生成答案，而是参与防剧透问答、线索整理、画作解析、提示导览和知识沉淀。</p>
               </article>
               <article class="case-point">
                 <h3>可直接打开验证</h3>
-                <p>它是当前在线项目，面试官可以直接访问，看到从 Demo 走向公开产品的完成度。</p>
+                <p>两个项目都是当前在线产品，面试官可以直接访问，看到从 Demo 走向公开产品的完成度。</p>
               </article>
             </div>
           </div>
@@ -943,14 +1060,17 @@
               我能从真实场景里提出问题，用 AI 和低代码/代码工具快速做出可体验版本，并根据产品形态不断调整信息架构、交互和内容表达。这正是我希望带到 AI 产品岗位里的能力。
             </p>
           </div>
-          <a class="button" href="https://shenmei-rich.vercel.app/" target="_blank" rel="noreferrer">查看当前在线产品</a>
+          <div class="hero-actions">
+            <a class="button" href="https://novel-companion-xi.vercel.app/" target="_blank" rel="noreferrer">查看小说伴读</a>
+            <a class="button" href="https://shenmei-rich.vercel.app/" target="_blank" rel="noreferrer">查看审美日课</a>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
       <div class="footer-inner">
-        Vibe Coding Portfolio · 2024-2026 · 早期项目以视频记录展示，审美日课为当前在线产品
+        Vibe Coding Portfolio · 2024-2026 · 早期项目以视频记录展示，小说伴读和审美日课为当前在线产品
       </div>
     </footer>
   </body>
